@@ -7,7 +7,7 @@
 
 using namespace std;
 
-    //¡rea de definiÁ„o de cabeÁalhos de funÁ„o
+    //√Årea de defini√ß√£o de cabe√ßalhos de fun√ß√£o
 
 //char nomejogador_atual [60];
 
@@ -19,7 +19,7 @@ int Limpador(){
 
 int iniciar_tabuleiro(char tabuleiro[3][3]){
 
-    //Navega por cada posiÁ„o do tabuleiro e coloca o sÌmbolo de '-'
+    //Navega por cada posi√ß√£o do tabuleiro e coloca o s√≠mbolo de '-'
     int linha,coluna;
     for(linha = 0; linha < 3; linha++){
         for(coluna = 0; coluna < 3; coluna++){
@@ -77,7 +77,7 @@ int conferir_tabuleiro(char tabuleiro[3][3]){
             }
         }
 
-        //Diagonal Secund·ria
+        //Diagonal Secund√°ria
         if(tabuleiro[0][2] != '-' && tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0]){
 
             if(tabuleiro[0][2] == 'X'){
@@ -102,16 +102,16 @@ int exibir_posicoes(){
 
 int jogo(char nomejogador_1[60], char nomejogador_2[60], int pontuacaojogador1, int pontuacaojogador2){
 
-    ///Vari·veis Gerais
+    ///Vari√°veis Gerais
     string nomejogador_atual;//Nomes dos jogadores
 
     char tabuleiro[3][3];                                       //Tabuleiro do Jogo
     int linha,coluna;                                           //Auxiliares para tabuleiro
-    int linhajogada,colunajogada,posicaojogada;                 //PosiÁ„o em que o jogador posiciona sua marca
+    int linhajogada,colunajogada,posicaojogada;                 //Posi√ß√£o em que o jogador posiciona sua marca
     int estadoDeJogo = 1;                                       //0 = Sem jogo,1 = Em Jogo
     int turno_jogador = 1;                                      //1 = X, 2 = O
     int rodada = 0;                                             //Quantas vezes os jogadores jogaram no total
-    int opcao;                                                  //OpÁ„o de reinÌcio
+    int opcao;                                                  //Op√ß√£o de rein√≠cio
     bool posicionou_jogada;                                      //Verifica se o jogador colocou um marcador no tabuleiro
 
     //Coloca os '-' no tabuleiro para indicar o vazio
@@ -146,13 +146,13 @@ int jogo(char nomejogador_1[60], char nomejogador_2[60], int pontuacaojogador1, 
 
         posicionou_jogada = false;
 
-        //Matriz de posicoes possÌveis
+        //Matriz de posicoes poss√≠veis
         //                     0     1     2     3     4     5     6     7     8     9
         int posicoes[10][2] = {{9,9},{2,0},{2,1},{2,2},{1,0},{1,1},{1,2},{0,0},{0,1},{0,2}};
         //// linha = 0 e coluna = 1
         while(posicionou_jogada == false){
 
-            //LÍ a jogada
+            //L√™ a jogada
 
             printf("\nRodada numero %d", rodada);
 
@@ -160,17 +160,17 @@ int jogo(char nomejogador_1[60], char nomejogador_2[60], int pontuacaojogador1, 
             cout << "\n" << nomejogador_atual << " Digite uma posicao conforme o mapa acima:";
             scanf("%d", &posicaojogada);
 
-            //Passa a linha e coluna de acordo com a matriz de posiÁıes exibida no mapa
+            //Passa a linha e coluna de acordo com a matriz de posi√ß√µes exibida no mapa
             linhajogada = posicoes[posicaojogada][0];
             colunajogada = posicoes[posicaojogada][1];
 
-            //Verifica se a posiÁ„o È vazia
+            //Verifica se a posi√ß√£o √© vazia
             if(tabuleiro[linhajogada][colunajogada] == '-'){
 
                 //Conseguiu posicionar um marcador
                 posicionou_jogada = true;
 
-                //Verifica de quem È a vez para posicionar o marcador
+                //Verifica de quem √© a vez para posicionar o marcador
                 if(turno_jogador == 1){
 
                     tabuleiro[linhajogada][colunajogada] = 'X';
@@ -222,14 +222,14 @@ int jogo(char nomejogador_1[60], char nomejogador_2[60], int pontuacaojogador1, 
 
 int menuInicial(){
 
-    //OpÁ„o escolhida pelo usu·rio
+    //Op√ß√£o escolhida pelo usu√°rio
     int opcao = 0;
 
     //Nome dos jogadores
     char nomejogador_1[60];
     char nomejogador_2[60];
 
-    //Enquanto o jogador n„o digita uma opcao v·lida, mostra o menu novamente
+    //Enquanto o jogador n√£o digita uma opcao v√°lida, mostra o menu novamente
     while(opcao < 1 || opcao > 3){
         Limpador();
         printf("          ##     ##    ###    ##     ##\n");
